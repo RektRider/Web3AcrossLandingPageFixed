@@ -30,10 +30,9 @@ export default function Hero() {
       ref={vantaRef}
       className="h-screen w-full text-white font-sans relative flex flex-col items-center justify-center px-4"
     >
-      {/* Background gradient layer under Vanta */}
+      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#01131e] to-[#043f48] opacity-90 z-0" />
 
-      {/* Logo + Title */}
       <motion.div
         className="flex items-center gap-4 mb-6 z-10"
         initial={{ opacity: 0, y: -20 }}
@@ -53,7 +52,6 @@ export default function Hero() {
         </motion.h1>
       </motion.div>
 
-      {/* Subtitle */}
       <motion.p
         className="text-lg md:text-2xl font-light max-w-2xl mb-6 z-10"
         initial={{ opacity: 0 }}
@@ -63,7 +61,6 @@ export default function Hero() {
         Strategic PR & Growth for the Web3 Projects
       </motion.p>
 
-      {/* CTA Button (we'll style this in next step) */}
       <motion.a
         href="#"
         className="px-6 py-3 border-2 border-teal-400 rounded-full text-white font-semibold z-10"
