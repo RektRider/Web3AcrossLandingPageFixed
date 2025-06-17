@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
-import NET from "vanta/dist/vanta.net.min";
+import GLOBE from "vanta/dist/vanta.globe.min";
 import { motion } from "framer-motion";
 
 export default function Hero() {
@@ -9,15 +9,18 @@ export default function Hero() {
 
   useEffect(() => {
     if (!effectRef.current) {
-      effectRef.current = NET({
+      effectRef.current = GLOBE({
         el: vantaRef.current,
         THREE: THREE,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
         color: 0x13b6b0,
         backgroundColor: 0x000000,
-        points: 10.0,
-        maxDistance: 20.0,
-        spacing: 15.0,
-        showDots: true,
       });
     }
     return () => {
@@ -27,13 +30,10 @@ export default function Hero() {
 
   return (
     <div className="relative h-screen w-full overflow-hidden text-white font-sans">
-      {/* BACKGROUND GRADIENT */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#01131e] to-[#043f48] z-0" />
-
       {/* VANTA GLOBE */}
       <div ref={vantaRef} className="absolute inset-0 z-10" />
 
-      {/* CONTENT */}
+      {/* Content */}
       <section className="relative z-20 h-full flex flex-col items-center justify-center px-4 text-center">
         {/* Logo + Title */}
         <motion.div
